@@ -1,0 +1,67 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Code/Player.gd" type="Script" id=1]
+[ext_resource path="res://GFX/guy.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 8, 8 )
+
+[node name="Player" type="KinematicBody2D" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+
+visible = false
+shape = SubResource( 1 )
+
+[node name="RayDown" type="RayCast2D" parent="." index="2"]
+
+enabled = true
+exclude_parent = true
+cast_to = Vector2( 0, 8 )
+collision_mask = 1
+_sections_unfolded = [ "Transform" ]
+
+[node name="RayUp" type="RayCast2D" parent="." index="3"]
+
+rotation = 3.14159
+enabled = true
+exclude_parent = true
+cast_to = Vector2( 0, 8 )
+collision_mask = 1
+_sections_unfolded = [ "Transform" ]
+
+[node name="RayLeft" type="RayCast2D" parent="." index="4"]
+
+rotation = 1.5708
+enabled = true
+exclude_parent = true
+cast_to = Vector2( 0, 8 )
+collision_mask = 1
+_sections_unfolded = [ "Transform" ]
+
+[node name="RayRight" type="RayCast2D" parent="." index="5"]
+
+rotation = 4.71239
+enabled = true
+exclude_parent = true
+cast_to = Vector2( 0, 8 )
+collision_mask = 1
+_sections_unfolded = [ "Transform" ]
+
+
